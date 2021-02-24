@@ -46,11 +46,6 @@ servers:
     description: Modo pruebas
 paths:
   /gateway/:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-gateway
     post:
       summary: ''
       operationId: post-gateway
