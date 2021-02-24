@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: ApiColombia
+  title: Medio de pago
   version: '1.0'
   description: |-
     Este Webservice y su arquitectura permiten que cualquier aplicativo sin importar el lenguaje de desarrollo, puedan beneficiarse de un conjunto de reglas de negocio y servicios, debido al cumplimiento de estándares SOAP, WSDL y XML.
