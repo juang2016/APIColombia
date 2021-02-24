@@ -47,7 +47,7 @@ servers:
 paths:
   /gateway/:
     post:
-      summary: ''
+      summary: CreateTransaccion
       operationId: post-gateway
       responses:
         '200':
