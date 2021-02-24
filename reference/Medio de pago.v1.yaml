@@ -32,17 +32,6 @@ info:
 
     A continuacion se describen los flujos de cada uno de los medios de pago para una mayor comprension
 
-    **Flujo de integración AIM**
-
-    Cómo funciona la implementación?
-
-    * Se hace una compilación de los datos a ser enviados a la plataforma, incluyendo los datos sensibles de la tarjeta (número, expiración, CVV2).
-
-    * Se prepara la petición POST a nivel de servidor, tenga en cuenta que el servicio espera los datos en codificación **ISO-8859-1*. Los datos a ser remitidos a Placetopay dependerán de la operación que desea realizar.
-
-    * Se hace el POST a Placetopay, y se espera por la respuesta. Normalmente los tiempos de respuesta son de 2 a 3 segundos, sin embargo tenga en cuenta que dependiendo de la congestión de la red u otros factores, el tiempo puede incrementarse. Verifique que en la implementación su script espera al menos hasta 15 o 20 segundos antes de dar un timeout.
-
-
     **Flujo de integración PSE**
 
     ¿Cómo funciona la implementación?

@@ -2,6 +2,45 @@ openapi: 3.0.0
 info:
   title: 2-Rest Doc
   version: '1.0'
+  description: |
+    Este Webservice y su arquitectura permiten que cualquier aplicativo sin importar el lenguaje de desarrollo, puedan beneficiarse de un conjunto de reglas de negocio y servicios, debido al cumplimiento de estándares SOAP, WSDL y XML.
+
+    Para hacer uso de los Webservice, debe contar con un lenguaje de programación que pueda consumirlos, algunos lenguajes tienen mejor soporte que otros desde el punto de vista de facilidad de acceso; sin embargo, si no se cuenta con un lenguaje que encapsule la comunicación, siempre se puede hacer incluso a nivel de sockets usando el protocolo HTTP conjuntamente con la especificación SOAP.
+
+    Para aquellos lenguajes que tienen un buen soporte lo más aconsejable es ir a través del WSDL para el Webservice.
+
+    La integración directa al medio de pago en general NO es recomendada, pues dificulta otros servicios que pueden estar implementados en la interfaz de Placetopay, al tiempo que hace que cada nuevo medio de pago liberado requiera un nuevo desarrollo por parte del comercio. Así que solo tener en cuenta esta integración si:
+
+    * Completa flujo de transacción no disponible por redirección.
+    * Usa el servicio a modo de marca blanca.
+
+    Como cualquier proceso de integración, este requerirá una certificación del personal de soporte de Placetopay para revisar temas de funcionamiento, mejores prácticas y usabilidad.
+
+    **¿Qué obligaciones tengo al usar esta integración?**
+
+    Ten en cuenta que al usar este tipo de integración, se requiere de certificación y los tiempos de implementación pueden ser mucho más altos que cuando se integra por `WebCheckOut`.
+
+    **Captura de la información**
+
+    Al consumir el servicio de creación de la transacción, tu aplicación debe proveer información sobre el pagador, el comprador y la transacción. Si corresponden a la misma persona, solamente deberás especificar la información del pagador.
+
+    Para proveer estos datos, tu aplicación deberá capturarlos directamente en el proceso o de alguna fuente de información previamente habilitada.
+
+    `Recomendamos tener un certificado digital SSL para tu sitio.`
+
+    `El lenguaje de preferencia para la integracion debe tener soporte para TLS 1.2 o superior `
+
+    A continuacion se describen los flujos de cada uno de los medios de pago para una mayor comprension
+
+    **Flujo de integración AIM**
+
+    Cómo funciona la implementación?
+
+    * Se hace una compilación de los datos a ser enviados a la plataforma, incluyendo los datos sensibles de la tarjeta (número, expiración, CVV2).
+
+    * Se prepara la petición POST a nivel de servidor, tenga en cuenta que el servicio espera los datos en codificación **ISO-8859-1*. Los datos a ser remitidos a Placetopay dependerán de la operación que desea realizar.
+
+    * Se hace el POST a Placetopay, y se espera por la respuesta. Normalmente los tiempos de respuesta son de 2 a 3 segundos, sin embargo tenga en cuenta que dependiendo de la congestión de la red u otros factores, el tiempo puede incrementarse. Verifique que en la implementación su script espera al menos hasta 15 o 20 segundos antes de dar un timeout.
 servers:
   - url: 'http://localhost:3000'
 paths:
