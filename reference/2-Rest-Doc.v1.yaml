@@ -58,5 +58,6 @@ paths:
             schema:
               type: object
               properties: {}
+      description: ''
 components:
   schemas: {}
